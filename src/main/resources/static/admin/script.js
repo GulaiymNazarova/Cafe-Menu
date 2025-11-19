@@ -103,3 +103,36 @@ function loadList() {
                             <button onclick="deleteItem(${item.id})">Удалить позицию</button></div>`;
                     });
                 } else {
+                html += `<em>Нет позиций</em>`;
+                                }
+
+                                const div = document.createElement('div');
+                                div.innerHTML = html;
+                                block.appendChild(div);
+                            });
+                        });
+                }
+
+                function deleteCategory(id) {
+                    fetch(`/api/admin/categories/${id}`, { method: 'DELETE' })
+                        .then(res => {
+                            if (res.ok) {
+                                showMessage('Категория удалена!', 'success');
+                                loadCategoriesForAdmin();
+                                loadList();
+                            }
+                        });
+                }
+
+                function deleteItem(id) {
+                    fetch(`/api/admin/items/${id}`, { method: 'DELETE' })
+                        .then(res => {
+                            if (res.ok) {
+                                showMessage('Позиция удалена!', 'success');
+                                loadList();
+                            }
+                        });
+                }
+
+                loadCategoriesForAdmin();
+                loadList();
