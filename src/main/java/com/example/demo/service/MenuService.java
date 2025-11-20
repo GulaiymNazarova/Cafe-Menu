@@ -5,7 +5,6 @@ import com.example.demo.model.Item;
 import com.example.demo.repository.CategoryRepository;
 import com.example.demo.repository.ItemRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

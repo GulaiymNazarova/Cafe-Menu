@@ -129,7 +129,9 @@ function loadList() {
                         .then(res => {
                             if (res.ok) {
                                 showMessage('Позиция удалена!', 'success');
-                                loadList();
+                                loadList();  фй
+
+
                             }
                         });
                 }

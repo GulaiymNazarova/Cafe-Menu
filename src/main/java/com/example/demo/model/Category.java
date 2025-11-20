@@ -18,7 +18,7 @@ public class Category {
     private String image_url;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnoreProperties("category") // важно! отключает цикличность
+    @JsonIgnoreProperties("category")
     private List<Item> items;
 
     public Integer getId() { return id; }
