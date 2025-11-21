@@ -2,20 +2,76 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cafe Menu - Client</title>
+    <title>Cafe Capito</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="app">
+    <!-- Language Selection -->
     <div id="language-block">
-        <h2>Choose Language / Тилди тандаңыз</h2>
-        <button onclick="setLanguage('kg')">Кыргызча</button>
+        <h2>Welcome / Добро пожаловать</h2>
+        <p>Choose Language / Тилди тандаңыз</p>
         <button onclick="setLanguage('en')">English</button>
+        <button onclick="setLanguage('kg')">Кыргызча</button>
     </div>
 
-    <div id="categories-block" style="display:none;"></div>
-    <div id="items-block" style="display:none;"></div>
-    <button id="back-btn" style="display:none;" onclick="goBack()">Back</button>
+    <!-- Header / Navigation -->
+    <header id="header" style="display:none;">
+        <div id="logo">Capito</div>
+        <nav>
+            <button onclick="showSection('about')"><span data-en="About Us" data-kg="Биз жөнүндө">About Us</span></button>
+            <button onclick="showSection('menu')"><span data-en="Menu" data-kg="Меню">Menu</span></button>
+            <button onclick="showSection('contacts')"><span data-en="Contacts" data-kg="Контакты">Contacts</span></button>
+        </nav>
+    </header>
+
+    <!-- About Us -->
+    <section id="about" style="display:none;">
+        <div class="about-container">
+            <img src="images/restoran-capito-cafe-kapito-na-3-ey-ulitse-yamskogo-polya_80c93_full-201058.png" alt="About Us">
+            <div class="about-text">
+                <h2 data-en="About Us" data-kg="Биз жөнүндө">About Us</h2>
+                <div class="text-container">
+                    <p data-en="Capito Cafe is your cozy corner in the heart of the city where every cup of coffee is brewed with love. We carefully select the best Arabica beans, roast them ourselves and prepare each drink so that you can feel the real taste and aroma. In addition to coffee, we offer a wide selection of homemade desserts and pastries, fresh breakfasts, light snacks and signature dishes prepared with care and attention to every detail. A warm atmosphere, soft lighting, comfortable furniture and sincere smiles of our team — everything here is created so that you can relax, work or have a good time with loved ones. We are waiting for you every day!"
+                       data-kg="Capito Cafe — бул шаардын так ортосундагы жылуу жана жагымдуу бурчуңуз, мында ар бир чыны кофе сүйүү менен демделет. Биз эң мыкты арабика дандарын кылдат танддап, өзүбүз кууруп, ар бир суусундукту чыныгы даамын жана жытын сезе алышыңыз үчүн даярдайбыз. Кофеден тышкары биз үй шартында жасалган десерттердин жана кондитердик азыктардын кеңири тандоосун, жаңы эртең мененки тамактарды, жеңил закускаларды жана ар бир майда-чүйдөсүнө чейин кылдаттык менен даярдалган фирмалык тамактарды сунуштайбыз. Жылуу маанай, жумшак жарык, ыңгайлуу эмерек жана командабыздын чын жүрөктөн жылмаюусу — бул жерде баары эс алуу, иштөө же жакын адамдарыңыз менен жагымдуу убакыт өткөрүү үчүн түзүлгөн. Биз сизди ар күнү күтөбүз!">
+                        Capito Cafe is your cozy place for coffee and desserts.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu -->
+    <section id="menu" style="display:none;">
+        <h2 data-en="Menu" data-kg="Меню">Menu</h2>
+        <p id="choose-category" data-en="Choose a category" data-kg="Категорияны тандаңыз">Choose a category</p>
+        <div id="categories-block" class="categories"></div>
+        <div id="items-block" class="items"></div>
+        <button id="back-btn" style="display:none;" onclick="goBack()">Back</button>
+    </section>
+
+    <!-- Contacts -->
+    <section id="contacts" style="display:none;">
+        <h2 data-en="Contacts" data-kg="Контакты">Contacts</h2>
+        <div class="contact-block">
+            <div>
+                <h3>WhatsApp</h3>
+                <img src="images/d3a42160f600dddd066a842e55b0731f.jpg" alt="WhatsApp QR">
+                <p><a href="https://wa.me/996704919572" target="_blank">+996704919572</a></p>
+            </div>
+            <div>
+                <h3>Instagram</h3>
+                <img src="images/d3a42160f600dddd066a842e55b0731f.jpg" alt="Instagram QR">
+                <p><a href="https://instagram.com/capito_cafe" target="_blank">@capito_cafe</a></p>
+            </div>
+            <div>
+                <h3>Telegram</h3>
+                <img src="images/d3a42160f600dddd066a842e55b0731f.jpg" alt="Telegram QR">
+                <p><a href="https://t.me/capito" target="_blank">@capito</a></p>
+            </div>
+        </div>
+    </section>
 </div>
 
 <script src="script.js"></script>

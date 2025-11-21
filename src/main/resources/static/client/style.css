@@ -1,20 +1,233 @@
+/* Общие стили страницы */
 body {
-font-family: Arial,
-sans-serif;
-margin: 20px;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFF8F0; /* нежный фон */
+    color: #8B6D5C; /* светло-коричневый текст */
 }
-#categories-block div, #items-block div {
-border: 1px solid #ccc;
-padding: 10px;
-margin: 10px;
-cursor: pointer;
+
+/* Шапка */
+#header {
+    display: flex;
+    align-items: center;
+    background-color: #C7E4C5; /* нежно-зелёный */
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-img {
-display: block;
-margin-bottom: 10px;
+
+#logo {
+    font-size: 28px;
+    font-weight: bold;
+    margin-right: 50px;
+    color: #8B6D5C;
 }
-button {
-padding: 10px 20px;
-margin: 5px;
-cursor: pointer;
+
+nav button {
+    margin-right: 15px;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: none;
+    color: #8B6D5C;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+nav button:hover {
+    text-decoration: underline;
+}
+
+/* Раздел "О нас" */
+.about-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+.about-container img {
+    max-width: 400px;
+    border-radius: 15px;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+.text-container{
+background-color: #C7E4C5;
+border-radius: 15px;
+
+}
+
+/* Меню */
+#menu h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#menu p {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Категории */
+.categories, .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 20px 40px 20px;
+}
+
+.category-card, .item-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 300px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #FFFDF8;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.category-card img, .item-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.category-card h3, .item-card h4 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.category-card p, .item-card p {
+    font-size: 16px;
+    margin: 2px 0;
+}
+
+/* Кнопка "Назад" */
+#back-btn {
+    display: block;
+    margin: 0 auto 40px auto;
+    padding: 10px 25px;
+    font-size: 16px;
+    background-color: #C7E4C5;
+    color: #8B6D5C;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#back-btn:hover {
+    background-color: #B1DAB0;
+}
+
+/* Контакты */
+.contact-block {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 40px 20px;
+}
+
+.contact-block div {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+    background-color: #FFFDF8;
+}
+
+.contact-block img {
+    max-width: 150px;
+    margin-bottom: 10px;
+}
+
+.contact-block h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.contact-block p, .contact-block a {
+    font-size: 16px;
+    color: #8B6D5C;
+    text-decoration: none;
+}
+
+.contact-block a:hover {
+    text-decoration: underline;
+}
+#contacts h2 {
+    text-align: center;   /* центрируем текст */
+    font-size: 36px;      /* увеличиваем размер заголовка */
+    margin-bottom: 30px;  /* отступ снизу */
+    color: #8B6D5C;       /* светло-коричневый, как у остальных надписей */
+}
+
+
+/* Кнопки выбора языка */
+#language-block {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+#language-block h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+#language-block p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+#language-block button {
+    padding: 15px 30px;
+    font-size: 18px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #C7E4C5;
+    color: #8B6D5C;
+}
+
+#language-block button:hover {
+    background-color: #B1DAB0;
+}
+
+/* Адаптивность */
+@media(max-width: 1000px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .categories, .items {
+        gap: 15px;
+    }
+
+    .category-card, .item-card {
+        width: 90%;
+    }
+
+    .contact-block {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
 }
