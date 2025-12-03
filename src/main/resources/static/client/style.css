@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #FFF8F0; /* нежный фон */
     color: #8B6D5C; /* светло-коричневый текст */
+
 }
 
 /* Шапка */
@@ -230,4 +231,15 @@ border-radius: 15px;
         align-items: center;
         gap: 30px;
     }
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #C7E4C5;
+    color: #8B6D5C;
+    font-size: 16px;
+}
+footer p:first-child {
+    margin-bottom: 10px;
 }
