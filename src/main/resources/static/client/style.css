@@ -1,41 +1,63 @@
-/* Общие стили страницы */
-body {
-    font-family: Arial, sans-serif;
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #FFF8F0; /* нежный фон */
-    color: #8B6D5C; /* светло-коричневый текст */
-
+    font-family: Arial, sans-serif;
+    background-color: #FFF8F0;
+    color: #8B6D5C;
 }
-
+main {
+    flex: 1; /* всё свободное место занимает контент */
+}
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 /* Шапка */
 #header {
+    background-color: #C7E4C5;
+    padding: 18px 30px;
+    box-shadow: 0 4px 12px rgba(139, 109, 92, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 3px solid #B1DAB0;
+    width: 100%;
+    box-sizing: border-box;
+}
+#header-content {
     display: flex;
     align-items: center;
-    background-color: #C7E4C5; /* нежно-зелёный */
-    padding: 15px 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 #logo {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
-    margin-right: 50px;
-    color: #8B6D5C;
+    color: #8B4513; /* чуть темнее и "вкуснее" */
+    letter-spacing: 1px;
 }
 
 nav button {
-    margin-right: 15px;
+    margin-left: 20px;
     padding: 10px 20px;
-    background-color: transparent;
-    border: none;
-    color: #8B6D5C;
-    font-size: 16px;
+    background: transparent;
+    border: 2px solid transparent;
+    color: #8B4513;
+    font-size: 17px;
+    font-weight: 500;
     cursor: pointer;
+    border-radius: 25px;
+    transition: all 0.3s;
 }
 
 nav button:hover {
-    text-decoration: underline;
+    background-color: #FFF8F0;
+    border-color: #B1DAB0;
+    color: #8B4513;
 }
 
 /* Раздел "О нас" */
@@ -232,14 +254,24 @@ border-radius: 15px;
         gap: 30px;
     }
 }
-
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #C7E4C5;
-    color: #8B6D5C;
+    background: linear-gradient(135deg, #C7E4C5, #B1DAB0);
+    padding: 30px 20px;
+    margin-top: auto; /* прижимает к низу */
+    border-top: 3px solid #A8D5A6;
+    color: #8B4513;
     font-size: 16px;
+    text-align: center;
 }
+
 footer p:first-child {
-    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #8B4513;
+}
+
+footer p:last-child {
+    font-size: 14px;
+    opacity: 0.9;
 }
