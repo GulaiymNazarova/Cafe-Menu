@@ -1,5 +1,7 @@
 let language = 'en';
 let currentCategory = null;
+const categoryTemplate = document.getElementById('category-template').content;
+const itemTemplate = document.getElementById('item-template').content;
 
 function setLanguage(lang) {
     language = lang;
@@ -31,21 +33,23 @@ function loadCategories() {
             const block = document.getElementById('categories-block');
             block.innerHTML = '';
             data.forEach(cat => {
-                const div = document.createElement('div');
-                div.className = 'category-card';
-                div.innerHTML = `
-                    <h3>${language === 'kg' ? cat.name_kg : cat.name_en}</h3>
-                    <img src="${cat.image_url}" alt="${cat.name_en}">
-                `;
-                div.onclick = () => loadItems(cat.id);
-                block.appendChild(div);
+                const name = language === 'kg' ? cat.name_kg : cat.name_en;
+
+                const card = categoryTemplate.cloneNode(true);
+                card.querySelector('img').src = cat.image_url || '';
+                card.querySelector('img').alt = name;
+                card.querySelector('h3').textContent = name;
+
+                card.querySelector('.category-card').onclick = () => loadItems(cat.id);
+                block.appendChild(card);
             });
+
             document.getElementById('items-block').style.display = 'none';
             document.getElementById('back-btn').style.display = 'none';
+            document.getElementById('categories-block').style.display = 'grid';
         })
-        .catch(err => console.error('Ошибка при загрузке категорий:', err));
+        .catch(err => console.error(err));
 }
-
 
 function loadItems(categoryId) {
     currentCategory = categoryId;
@@ -54,30 +58,39 @@ function loadItems(categoryId) {
         .then(data => {
             const block = document.getElementById('items-block');
             block.innerHTML = '';
+
             data.forEach(item => {
                 const name = language === 'kg' ? item.name_kg : item.name_en;
                 const desc = language === 'kg' ? item.description_kg : item.description_en;
-                const priceLabel = language === 'kg' ? 'Баасы' : 'Price';
-                block.innerHTML += `
-                    <div class="item-card">
-                        <h4>${name || '---'}</h4>
-                        <p>${priceLabel}: ${item.price ?? '---'}</p>
-                        <img src="${item.image_url}" alt="${name}">
-                        <p>${desc || '---'}</p>
-                    </div>
-                `;
+                const priceLabel = language === 'kg' ? 'сом' : 'som';
+
+                const card = itemTemplate.cloneNode(true);
+                card.querySelector('img').src = item.image_url || '';
+                card.querySelector('img').alt = name;
+                card.querySelector('.item-name').textContent = name || '—';
+                card.querySelector('.description').textContent = desc || '';
+                card.querySelector('.price strong').textContent = `${item.price || '—'} ${priceLabel}`;
+
+                block.appendChild(card);
             });
+
             document.getElementById('categories-block').style.display = 'none';
-            block.style.display = 'flex';
+            block.style.display = 'grid';
             document.getElementById('back-btn').style.display = 'block';
         })
-        .catch(err => console.error('Ошибка при загрузке позиций:', err));
+        .catch(err => console.error(err));
 }
 
 function goBack() {
-    if(document.getElementById('items-block').style.display === 'flex') {
-        document.getElementById('items-block').style.display = 'none';
-        document.getElementById('categories-block').style.display = 'flex';
-        document.getElementById('back-btn').style.display = 'none';
+    const itemsBlock = document.getElementById('items-block');
+    const categoriesBlock = document.getElementById('categories-block');
+    const backBtn = document.getElementById('back-btn');
+
+    // Проверяем, видим ли блок товаров
+    if (itemsBlock.style.display === 'grid' || getComputedStyle(itemsBlock).display === 'grid') {
+        itemsBlock.style.display = 'none';
+        categoriesBlock.style.display = 'grid';
+        backBtn.style.display = 'none';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }

@@ -6,16 +6,17 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="language-block">
+    <h2>Welcome / Добро пожаловать</h2>
+    <p>Choose Language / Тилди тандаңыз</p>
+    <button onclick="setLanguage('en')">English</button>
+    <button onclick="setLanguage('kg')">Кыргызча</button>
+</div>
 <div class="wrapper">
     <div id="app">
 
         <!-- Language Selection -->
-        <div id="language-block">
-            <h2>Welcome / Добро пожаловать</h2>
-            <p>Choose Language / Тилди тандаңыз</p>
-            <button onclick="setLanguage('en')">English</button>
-            <button onclick="setLanguage('kg')">Кыргызча</button>
-        </div>
+
 
         <!-- Header / Navigation -->
         <header id="header" style="display:none;">
@@ -29,32 +30,67 @@
             </div>
         </header>
         <main>
-        <!-- About Us -->
-        <section id="about" style="display:none;">
-            <div class="about-container">
-                <img src="https://i.pinimg.com/736x/10/bd/8c/10bd8c1ec9383534021a4eecc75e0a49.jpg" alt="About Us">
-                <div class="about-text">
-                    <h2 data-en="About Us" data-kg="Биз жөнүндө">About Us</h2>
-                    <div class="text-container">
-                        <p data-en="Capito Cafe is your cozy corner in the heart of the city where every cup of coffee is brewed with love. We carefully select the best Arabica beans, roast them ourselves and prepare each drink so that you can feel the real taste and aroma. In addition to coffee, we offer a wide selection of homemade desserts and pastries, fresh breakfasts, light snacks and signature dishes prepared with care and attention to every detail. A warm atmosphere, soft lighting, comfortable furniture and sincere smiles of our team — everything here is created so that you can relax, work or have a good time with loved ones. We are waiting for you every day!"
-                           data-kg="Capito Cafe — бул шаардын так ортосундагы жылуу жана жагымдуу бурчуңуз, мында ар бир чыны кофе сүйүү менен демделет. Биз эң мыкты арабика дандарын кылдат танддап, өзүбүз кууруп, ар бир суусундукту чыныгы даамын жана жытын сезе алышыңыз үчүн даярдайбыз. Кофеден тышкары биз үй шартында жасалган десерттердин жана кондитердик азыктардын кеңири тандоосун, жаңы эртең мененки тамактарды, жеңил закускаларды жана ар бир майда-чүйдөсүнө чейин кылдаттык менен даярдалган фирмалык тамактарды сунуштайбыз. Жылуу маанай, жумшак жарык, ыңгайлуу эмерек жана командабыздын чын жүрөктөн жылмаюусу — бул жерде баары эс алуу, иштөө же жакын адамдарыңыз менен жагымдуу убакыт өткөрүү үчүн түзүлгөн. Биз сизди ар күнү күтөбүз!">
-                            Capito Cafe is your cozy place for coffee and desserts.
-                        </p>
+            <section id="about" style="display:none;">
+                <div class="about-container">
+                    <div class="about-image">
+                        <img src="https://i.pinimg.com/736x/10/bd/8c/10bd8c1ec9383534021a4eecc75e0a49.jpg" alt="Capito Cafe">
                     </div>
-
+                    <div class="about-text">
+                        <h2 data-en="About Us" data-kg="Биз жөнүндө">About Us</h2>
+                        <div class="text-container">
+                            <p data-en="Capito Cafe is your cozy corner in the heart of the city where every cup of coffee is brewed with love. We carefully select the best Arabica beans, roast them ourselves and prepare each drink so that you can feel the real taste and aroma. In addition to coffee, we offer a wide selection of homemade desserts and pastries, fresh breakfasts, light snacks and signature dishes prepared with care and attention to every detail. A warm atmosphere, soft lighting, comfortable furniture and sincere smiles of our team — everything here is created so that you can relax, work or have a good time with loved ones. We are waiting for you every day!"
+                               data-kg="Capito Cafe — бул шаардын так ортосундагы жылуу жана жагымдуу бурчуңуз, мында ар бир чыны кофе сүйүү менен демделет. Биз эң мыкты арабика дандарын кылдат танддап, өзүбүз кууруп, ар бир суусундукту чыныгы даамын жана жытын сезе алышыңыз үчүн даярдайбыз. Кофеден тышкары биз үй шартында жасалган десерттердин жана кондитердик азыктардын кеңири тандоосун, жаңы эртең мененки тамактарды, жеңил закускаларды жана ар бир майда-чүйдөсүнө чейин кылдаттык менен даярдалган фирмалык тамактарды сунуштайбыз. Жылуу маанай, жумшак жарык, ыңгайлуу эмерек жана командабыздын чын жүрөктөн жылмаюусу — бул жерде баары эс алуу, иштөө же жакын адамдарыңыз менен жагымдуу убакыт өткөрүү үчүн түзүлгөн. Биз сизди ар күнү күтөбүз!">
+                                Capito Cafe
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Menu -->
-        <section id="menu" style="display:none;">
-            <h2 data-en="Menu" data-kg="Меню">Menu</h2>
-            <p id="choose-category" data-en="Choose a category" data-kg="Категорияны тандаңыз">Choose a category</p>
-            <div id="categories-block" class="categories"></div>
-            <div id="items-block" class="items"></div>
-            <button id="back-btn" style="display:none;" onclick="goBack()">Back</button>
-        </section>
+            <section id="menu" style="display:none;">
+                <h2 data-en="Menu" data-kg="Меню">Menu</h2>
+                <p id="choose-category" data-en="Choose a category" data-kg="Категорияны тандаңыз">Choose a category</p>
 
+                <!-- Блок категорий -->
+                <div id="categories-block" class="categories">
+                    <!-- Карточки будут сюда вставляться через JS -->
+                </div>
+
+                <!-- Блок товаров внутри категории -->
+                <div id="items-block" class="items" style="display:none;">
+                    <!-- Карточки товаров будут сюда -->
+                </div>
+
+                <button id="back-btn" onclick="goBack()">
+                    <span data-en="Back" data-kg="Артка">Back</span>
+                </button>
+            </section>
+
+            <!-- ШАБЛОНЫ КАРТОЧКИ КАТЕГОРИИ (невидимый) -->
+            <template id="category-template">
+                <div class="category-card">
+                    <div class="card-image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h3></h3>
+                    </div>
+                </div>
+            </template>
+
+            <!-- ШАБЛОН КАРТОЧКИ ТОВАРА (невидимый) -->
+            <template id="item-template">
+                <div class="item-card">
+                    <div class="card-image">
+                        <img src="" alt="">
+                    </div>
+                    <div class="card-content">
+                        <h4 class="item-name"></h4>
+                        <p class="description"></p>
+                        <p class="price"><strong></strong></p>
+                    </div>
+                </div>
+            </template>
         <!-- Contacts -->
         <section id="contacts" style="display:none;">
             <h2 data-en="Contacts" data-kg="Контакты">Contacts</h2>
