@@ -25,10 +25,29 @@
                 <nav>
                     <button onclick="showSection('about')"><span data-en="About Us" data-kg="Биз жөнүндө">About Us</span></button>
                     <button onclick="showSection('menu')"><span data-en="Menu" data-kg="Меню">Menu</span></button>
+                    <button onclick="showSection('get-bonus')"><span data-en="Get Bonus" data-kg="Бонус чогултуу">Get Bonus</span></button>
+                    <button onclick="showSection('my-bonuses')"><span data-en="My Bonuses" data-kg="Менин бонустарым">My Bonuses</span></button>
                     <button onclick="showSection('contacts')"><span data-en="Contacts" data-kg="Контакты">Contacts</span></button>
                 </nav>
             </div>
         </header>
+        <div id="banner-carousel" style="display:none;">
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Слайды добавляются через JS -->
+                </div>
+
+                <!-- Кнопки навигации -->
+                <button class="carousel-btn prev" onclick="prevSlide()">‹</button>
+                <button class="carousel-btn next" onclick="nextSlide()">›</button>
+
+                <!-- Индикатор точек -->
+                <div class="carousel-dots">
+                    <!-- Точки добавляются через JS -->
+                </div>
+            </div>
+        </div>
+
         <main>
             <section id="about" style="display:none;">
                 <div class="about-container">
@@ -91,23 +110,70 @@
                     </div>
                 </div>
             </template>
+
+            <!-- Get Bonus Section (будет игра) -->
+        <section id="get-bonus" style="display:none;">
+                <div class="bonus-container">
+                    <h2 data-en="Get Bonus" data-kg="Бонус чогултуу">Get Bonus</h2>
+                    <div class="coming-soon">
+                        <p data-en="Exciting bonus game coming soon! 🎮" data-kg="Кызыктуу бонус оюну жакында! 🎮">
+                            Exciting bonus game coming soon! 🎮
+                        </p>
+                        <div class="game-placeholder">
+                            <div class="game-icon">🎯</div>
+                            <p data-en="Collect points and win prizes!" data-kg="Упайларды чогултуп, сыйлыктарды утүп алыңыз!">
+                                Collect points and win prizes!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- My Bonuses Section (будет бэкэнд) -->
+        <section id="my-bonuses" style="display:none;">
+                <div class="bonuses-container">
+                    <h2 data-en="My Bonuses" data-kg="Менин бонустарым">My Bonuses</h2>
+                    <div class="coming-soon">
+                        <p data-en="Your bonus dashboard is under development 🔧" data-kg="Сиздин бонус панелиңиз иштелип жатат 🔧">
+                            Your bonus dashboard is under development 🔧
+                        </p>
+                        <div class="dashboard-placeholder">
+                            <div class="stats-icon">📊</div>
+                            <p data-en="Track your points, rewards and visits" data-kg="Упайларыңызды, сыйлыктарыңызды жана визиттериңизди көзөмөлдөңүз">
+                                Track your points, rewards and visits
+                            </p>
+                            <div class="login-prompt">
+                                <p data-en="Coming soon: Login with QR code" data-kg="Жакында: QR код менен кирүү">
+                                    Coming soon: Login with QR code
+                                </p>
+                                <div class="qr-placeholder">
+                                    <div class="qr-icon">📱</div>
+                                    <p data-en="Scan QR to access your account" data-kg="Каттоо эсебиңизге кирүү үчүн QR кодду сканерлеңиз">
+                                        Scan QR to access your account
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         <!-- Contacts -->
         <section id="contacts" style="display:none;">
             <h2 data-en="Contacts" data-kg="Контакты">Contacts</h2>
             <div class="contact-block">
                 <div>
                     <h3>WhatsApp</h3>
-                    <img src="images/d3a42160f600dddd066a842e55b0731f.jpg" alt="WhatsApp QR">
+                    <img src="https://i.pinimg.com/736x/9a/9a/16/9a9a16b12880f1f14dbf3fb2ad64bf95.jpg" alt="WhatsApp QR">
                     <p><a href="https://wa.me/996704919572" target="_blank">+996704919572</a></p>
                 </div>
                 <div>
                     <h3>Instagram</h3>
-                    <img src="images/d3a42160f600dddd066a842e55b0731f.jpg" alt="Instagram QR">
+                    <img src="https://i.pinimg.com/736x/9a/9a/16/9a9a16b12880f1f14dbf3fb2ad64bf95.jpg" alt="Instagram QR">
                     <p><a href="https://instagram.com/capito_cafe" target="_blank">@capito_cafe</a></p>
                 </div>
                 <div>
                     <h3>Telegram</h3>
-                    <img src="images/d3a42160f600dddd066a842e55b0731f.jpg" alt="Telegram QR">
+                    <img src="https://i.pinimg.com/736x/9a/9a/16/9a9a16b12880f1f14dbf3fb2ad64bf95.jpg" alt="Telegram QR">
                     <p><a href="https://t.me/capito" target="_blank">@capito</a></p>
                 </div>
             </div>
