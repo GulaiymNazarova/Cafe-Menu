@@ -7,6 +7,7 @@ html, body {
     color: #8B6D5C;
     background: linear-gradient(135deg, #FFF8F0 0%, #f0f7eb 100%);
     min-height: 100vh;
+    /*padding-top: 68px;*/
 }
 /* === ЭКРАН ВЫБОРА ЯЗЫКА — КРАСИВЫЙ И УЮТНЫЙ === */
 #language-block {
@@ -60,6 +61,7 @@ main {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-top: 80px;
 }
 .wrapper > main {
     flex: 1;
@@ -69,12 +71,14 @@ main {
     background-color: #C7E4C5;
     padding: 18px 30px;
     box-shadow: 0 4px 12px rgba(139, 109, 92, 0.15);
-    position: sticky;
+    position: fixed;
     top: 0;
-    z-index: 100;
     border-bottom: 3px solid #B1DAB0;
     width: 100%;
     box-sizing: border-box;
+    left: 0;
+    z-index: 1000;
+    height: 80px;
 }
 #header-content {
     display: flex;
@@ -396,7 +400,7 @@ footer p:last-child {
 #banner-carousel {
     position: relative;
     width: 100%;
-    height: 400px; /* Фиксированная высота */
+    height: 400px;
     overflow: hidden;
     background: #000;
     margin: 0;
@@ -518,17 +522,6 @@ footer p:last-child {
     background: white;
 }
 
-/* Если хотите сделать баннер фиксированным при скролле, добавьте: */
-/*
-#banner-carousel.fixed {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    height: 300px; /* Меньшая высота для фиксированного вида */
-}
-*/
 
 /* Адаптивность для баннера */
 @media (max-width: 768px) {
@@ -577,20 +570,417 @@ footer p:last-child {
         font-size: 18px;
     }
 }
-#banner-carousel.fixed {
+
+
+/* Бонус секция */
+.bonus-step {
+    max-width: 500px;
+    margin: 0 auto 40px;
+    text-align: center;
+    padding: 30px;
+    background: #C7E4C5;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.bonus-step h3 {
+    margin-bottom: 25px;
+    color: #4A2C2A;
+    font-size: 1.5rem;
+}
+
+.phone-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+#phone-input {
+    flex: 1;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #E8D8C4;
+    border-radius: 10px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+#phone-input:focus {
+    border-color: #C7B7A3;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(199, 183, 163, 0.3);
+}
+
+#check-bonus-btn, #change-phone-btn {
+    background: #C7B7A3;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#check-bonus-btn:hover, #change-phone-btn:hover {
+        background: #B3A291;
+    transform: translateY(-2px);
+}
+
+.phone-hint {
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Карточка бонусов */
+.bonus-card {
+    background: linear-gradient(135deg, #f7f5e9 0%, #f7f5e9 100%);
+    color: #8B4513;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+
+.bonus-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0;
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    color: #8B4513;
+}
+
+.phone-display {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.bonus-points {
+    font-size: 1.8rem;
+}
+
+.bonus-points strong {
+    color: #FFD700;
+    font-size: 2.2rem;
+    margin-left: 10px;
+}
+
+.bonus-description {
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* Игры */
+.games-section {
+    margin-bottom: 40px;
+}
+
+.games-description {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+.games-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.game-card {
+    background: #f7f5e9;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border: 2px solid #E8D8C4;
+    transition: all 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border-color: #C7B7A3;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.game-header h4 {
+    color: #4A2C2A;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.game-reward {
+    background: #f7f5e9;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.game-description {
+    color: #666;
+    margin: 15px 0 25px;
+    line-height: 1.5;
+    min-height: 60px;
+}
+
+.play-btn {
+    width: 100%;
+    background: #C7B7A3;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.play-btn:hover {
+    background: #B3A291;
+}
+
+/* Модальное окно игры */
+.modal {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 999;
-    height: 300px; /* Уменьшенная высота для фиксированного вида */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Отступ для контента, когда баннер фиксирован */
-body.has-fixed-banner {
-    padding-top: 300px;
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #C7E4C5;
+}
+
+#game-content {
+    margin-top: 20px;
+}
+
+/* Стили для содержимого игр */
+.game-screen {
+    text-align: center;
+}
+
+.game-title {
+    color: #4A2C2A;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.game-instructions {
+    background: #F8F4F0;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.game-input {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+    border: 2px solid #E8D8C4;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+.game-btn {
+    background: #C7E4C5;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s;
+}
+
+.game-btn:hover {
+    background: #3A1C1A;
+    transform: scale(1.05);
+}
+
+.game-result {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.result-success {
+    background: #D4EDDA;
+    color: #155724;
+    border: 2px solid #C3E6CB;
+}
+
+.result-failure {
+    background: #F8D7DA;
+    color: #721C24;
+    border: 2px solid #F5C6CB;
+}
+
+.result-neutral {
+    background: #FFF3CD;
+    color: #856404;
+    border: 2px solid #FFEEBA;
+}
+
+.game-choices {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+}
+
+.choice-btn {
+    padding: 20px 30px;
+    font-size: 1.5rem;
+    background: #E8D8C4;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.choice-btn:hover {
+    background: #C7B7A3;
+    transform: scale(1.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .phone-input-container {
+        flex-direction: column;
+    }
+
+    .bonus-info {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .games-container {
+        grid-template-columns: 1fr;
+    }
+
+    .game-choices {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .choice-btn {
+        width: 80%;
+    }
 }
 
 
 
+/* Уведомление о бонусах */
+.bonus-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: linear-gradient(135deg, #C7E4C5 0%, #C7E4C5 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(74, 44, 42, 0.3);
+    z-index: 10000;
+    animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s;
+    transition: opacity 0.3s;
+}
+
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.notification-icon {
+    font-size: 1.3rem;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* Ошибки ввода */
+.input-error {
+    border-color: #dc3545 !important;
+    background-color: #f8d7da !important;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+/* Индикатор загрузки */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

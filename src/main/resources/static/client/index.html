@@ -26,7 +26,6 @@
                     <button onclick="showSection('about')"><span data-en="About Us" data-kg="Биз жөнүндө">About Us</span></button>
                     <button onclick="showSection('menu')"><span data-en="Menu" data-kg="Меню">Menu</span></button>
                     <button onclick="showSection('get-bonus')"><span data-en="Get Bonus" data-kg="Бонус чогултуу">Get Bonus</span></button>
-                    <button onclick="showSection('my-bonuses')"><span data-en="My Bonuses" data-kg="Менин бонустарым">My Bonuses</span></button>
                     <button onclick="showSection('contacts')"><span data-en="Contacts" data-kg="Контакты">Contacts</span></button>
                 </nav>
             </div>
@@ -111,48 +110,95 @@
                 </div>
             </template>
 
-            <!-- Get Bonus Section (будет игра) -->
-        <section id="get-bonus" style="display:none;">
-                <div class="bonus-container">
-                    <h2 data-en="Get Bonus" data-kg="Бонус чогултуу">Get Bonus</h2>
-                    <div class="coming-soon">
-                        <p data-en="Exciting bonus game coming soon! 🎮" data-kg="Кызыктуу бонус оюну жакында! 🎮">
-                            Exciting bonus game coming soon! 🎮
+            <section id="get-bonus" style="display:none;">
+                <h2 data-en="Get Bonus" data-kg="Бонус чогултуу">Get Bonus</h2>
+
+                <!-- Шаг 1: Ввод номера телефона -->
+                <div id="phone-input-step" class="bonus-step">
+                    <h3 data-en="Enter your phone number" data-kg="Телефон номериңизди киргизиңиз">Enter your phone number</h3>
+                    <div class="phone-input-container">
+                        <input
+                                type="tel"
+                                id="phone-input"
+                                placeholder="0700 123 456"
+                                maxlength="10"
+                                pattern="[0-9]{10}"
+                                oninput="formatPhoneNumber(this)"
+                        >
+                        <button id="check-bonus-btn" onclick="checkBonus()">
+                            <span data-en="Continue" data-kg="Улантуу">Continue</span>
+                        </button>
+                    </div>
+                    <p class="phone-hint" data-en="Enter 10 digits without +996" data-kg="+996 жок, 10 сандан турган номерди киргизиңиз">
+                        Enter 10 digits without +996
+                    </p>
+                </div>
+
+                <!-- Шаг 2: Отображение бонусов -->
+                <div id="bonus-display-step" class="bonus-step" style="display:none;">
+                    <div class="bonus-card">
+                        <h3 data-en="Your bonus card" data-kg="Сиздин бонус картаңыз">Your bonus card</h3>
+                        <div class="bonus-info">
+                            <p class="phone-display" id="display-phone"></p>
+                            <div class="bonus-points">
+                                <span data-en="Bonus points:" data-kg="Бонус упайлары:" id="bonus-label">Bonus points:</span>
+                                <strong id="bonus-points">0</strong>
+                            </div>
+                        </div>
+                        <p class="bonus-description" data-en="Collect points by playing games and exchange them for discounts at the cafe!"
+                           data-kg="Оюндарды ойноуп упай чогултуп, аларды кафеде арзандатууларга алмаштырыңыз!">
+                            Collect points by playing games and exchange them for discounts at the cafe!
                         </p>
-                        <div class="game-placeholder">
-                            <div class="game-icon">🎯</div>
-                            <p data-en="Collect points and win prizes!" data-kg="Упайларды чогултуп, сыйлыктарды утүп алыңыз!">
-                                Collect points and win prizes!
-                            </p>
+                    </div>
+
+                    <!-- Игры для сбора бонусов -->
+                    <div class="games-section">
+                        <h3 data-en="Play and collect bonus points" data-kg="Ойноуп бонус упайларды чогултуңуз">Play and collect bonus points</h3>
+                        <p class="games-description" data-en="Choose a game and start collecting points! Points are added automatically after completing the game."
+                           data-kg="Оюнду тандап, упайларды чогулта баштаңыз! Оюнду аяктагандан кийин упайлар автоматтык түрдө кошулат.">
+                            Choose a game and start collecting points!
+                        </p>
+
+                        <div class="games-container">
+                            <!-- Игра 1: Угадай число -->
+                            <div class="game-card">
+                                <div class="game-header">
+                                    <h4 data-en="Guess the Number" data-kg="Санды тап">Guess the Number</h4>
+                                    <span class="game-reward" data-en="Reward: 5 points" data-kg="Сыйлык: 5 упай">Reward: 5 points</span>
+                                </div>
+                                <p class="game-description" data-en="Guess a number from 1 to 10. You have 3 attempts!"
+                                   data-kg="1ден 10го чейинки санды табыңыз. Сизде 3 аракет бар!">
+                                    Guess a number from 1 to 10. You have 3 attempts!
+                                </p>
+                                <button class="play-btn" onclick="startGuessGame()" data-en="Play" data-kg="Ойноо">Play</button>
+                            </div>
+
+                            <!-- Игра 2: Камень-Ножницы-Бумага -->
+                            <div class="game-card">
+                                <div class="game-header">
+                                    <h4 data-en="Rock Paper Scissors" data-kg="Таш Кайчы Кагаз">Rock Paper Scissors</h4>
+                                    <span class="game-reward" data-en="Reward: 3 points" data-kg="Сыйлык: 3 упай">Reward: 3 points</span>
+                                </div>
+                                <p class="game-description" data-en="Classic game against the computer. Win 2 rounds out of 3!"
+                                   data-kg="Компьютерге каршы классикалык оюн. 3 раунддан 2син утуңуз!">
+                                    Classic game against the computer. Win 2 rounds out of 3!
+                                </p>
+                                <button class="play-btn" onclick="startRPSGame()" data-en="Play" data-kg="Ойноо">Play</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <!-- My Bonuses Section (будет бэкэнд) -->
-        <section id="my-bonuses" style="display:none;">
-                <div class="bonuses-container">
-                    <h2 data-en="My Bonuses" data-kg="Менин бонустарым">My Bonuses</h2>
-                    <div class="coming-soon">
-                        <p data-en="Your bonus dashboard is under development 🔧" data-kg="Сиздин бонус панелиңиз иштелип жатат 🔧">
-                            Your bonus dashboard is under development 🔧
-                        </p>
-                        <div class="dashboard-placeholder">
-                            <div class="stats-icon">📊</div>
-                            <p data-en="Track your points, rewards and visits" data-kg="Упайларыңызды, сыйлыктарыңызды жана визиттериңизди көзөмөлдөңүз">
-                                Track your points, rewards and visits
-                            </p>
-                            <div class="login-prompt">
-                                <p data-en="Coming soon: Login with QR code" data-kg="Жакында: QR код менен кирүү">
-                                    Coming soon: Login with QR code
-                                </p>
-                                <div class="qr-placeholder">
-                                    <div class="qr-icon">📱</div>
-                                    <p data-en="Scan QR to access your account" data-kg="Каттоо эсебиңизге кирүү үчүн QR кодду сканерлеңиз">
-                                        Scan QR to access your account
-                                    </p>
-                                </div>
-                            </div>
+                    <button id="change-phone-btn" onclick="changePhoneNumber()">
+                        <span data-en="Change phone number" data-kg="Телефон номерин өзгөртүү">Change phone number</span>
+                    </button>
+                </div>
+
+                <!-- Модальное окно для игр -->
+                <div id="game-modal" class="modal" style="display:none;">
+                    <div class="modal-content">
+                        <span class="close-btn" onclick="closeGameModal()">&times;</span>
+                        <div id="game-content">
+                            <!-- Содержимое игры будет здесь -->
                         </div>
                     </div>
                 </div>
